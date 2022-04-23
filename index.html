@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <!-- Required meta tags-->
@@ -434,16 +434,12 @@ Oneecca
             var inputValue = $(this).attr("id");
             if (inputValue == "hak2" ) {
               $("#sembunyi").hide();
-              document.getElementById("bhk3").checked=true;
             } else if (inputValue == "hak3") {
               $("#sembunyi").hide();
-              document.getElementById("bhk3").checked=true;
               $("#sembunyi2").hide();
-              $("input:radio[name=mdl]").inputValue = "Menyesuaikan";
             } else {
               $("#sembunyi").show();
               $("#sembunyi2").show();
-              $("input:radio[name=mdl]:checked").val();
             }
           });
 
@@ -451,18 +447,28 @@ Oneecca
 
           $(document).on('click','.send', function(){
               /* Inputan Formulir */
+              var input_bhn,
+                  input_mdl;
+              if ($("input:radio[id=hak3]:checked")) {
+                input_bhn = "-";
+                input_mdl = "Menyesuaikan";
+              } else if ($("input:radio[id=hak2]:checked")) {
+                input_bhn = "-";
+                input_mdl = $("input:radio[name=mdl]:checked").val();
+              } else {
+                input_bhn = $("input:radio[name=bhk]:checked").val();
+                input_mdl = $("input:radio[name=mdl]:checked").val();
+              }
               var input_name          = $("#name").val(),
                   input_add           = $("#add").val(),
                   input_tgl         	= $("#tgl").val(),
                   input_tgl2         	= $("#tgl2").val(),
                   input_hak         	= $("input:radio[name=hak]:checked").val(),
                   input_stl         	= $("input:radio[name=stl]:checked").val(),
-                  input_bhn         	= $("input:radio[name=bhk]:checked").val(),
                   input_product       = $("#product").val(),
                   input_payet         = $("#payet").val(),
                   input_hjb         	= $("input:radio[name=hjb]:checked").val(),
                   input_msk         	= $("input:radio[name=msk]:checked").val(),
-                  input_mdl         	= $("input:radio[name=mdl]:checked").val(),
                   input_wk         		= $("#wk").val(),
                   input_tb         		= $("#tb").val(),
                   input_bb         		= $("#bb").val(),
