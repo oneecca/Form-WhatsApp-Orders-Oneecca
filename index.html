@@ -46,7 +46,7 @@
                   </div>
                       <div class="gs1"></div>
 
-<div  onclick="set()">
+
                     <form method="POST">
                         <div class="row row-space">
                             <div class="col-2">
@@ -299,7 +299,7 @@ classic radio
                                   <label class="label2">Catatan</label>
                                   <input class="input--style-4b" placeholder="bila ada catatan tambahan [boleh dikosongkan]" name="desc" id="desc">
                               </div>
-</div>
+
                         <div class="p-t-15a">
                             <div id="text-info"></div>
                         </div>
@@ -407,8 +407,27 @@ Oneecca
 
 
           /* ================== button submit =============================*/
-function set()
-  {
+
+$('input:radio[name="hak"]').click(function () {
+  var tes = $(this).alt();
+  if (tes == "2") {
+    $("#kainhide").show();
+  } else {
+    $("#kainhide").hide();
+  }
+});
+
+$("#proporsihide").hide();
+$('input:radio[name="mdl"]').click(function () {
+  var tes = $(this).alt();
+  if (tes == "1") {
+    $("#proporsihide").hide();
+  } else {
+    $("#proporsihide").show();
+  }
+});
+
+$(document).on('click','.send', function(){
 /* Pengaturan Whatsapp */
 var walink = 'https://web.whatsapp.com/send',
     phone2       = '6285834326162',
@@ -447,9 +466,6 @@ var vnam, valmt, vpake, vamb, vutk, vbuat, vkain,
 
 var iniUntukFungsiTambahdanHide, vrutk, vrmodel, tanyain;
 
-$("#proporsihide").hide();
-
-
   vnam    = $("#name").val() + '* - *';
   valmt   = $("#add").val() + benter;
   vutk    = 'mau' + $("input:radio[name=hak]:checked").val() + benter;
@@ -469,33 +485,23 @@ $("#proporsihide").hide();
   vbb     = tbb + $("#bb").val() + kg;
 
   if (vrutk == "2") {
-    $("#kainhide").show();
     vkain = tkain + $("input:radio[name=bhk]:checked").val() + benter;
     tanyain = mbook;
   } else {
-    $("#kainhide").hide();
     vkain = "";
     tanyain = msewa;
   }
 
   if (vrmodel == "1") {
-    $("#proporsihide").hide();
     vmodel = tanyain + enter2 + mkirmdl + enter + msakir;
   } else if (vrmodel == "2") {
     vproporsi = vwk + vtb + vbb;
-    $("#proporsihide").show();
     vmodel = tanyain + enter2 + mkirses + enter + vproporsi + msakir;
   } else if (vrmodel == "3") {
     vproporsi = vwk + vtb + vbb;
-    $("#proporsihide").show();
     vmodel = noting + enter + vproporsi + mbing;
   }
 
-
-
-
-
-$(document).on('click','.send', function(){
 
 var thisforBlankFormCheking,
     input_name          = $("#name").val(),
@@ -555,7 +561,7 @@ var thisforBlankFormCheking,
                    <i class="fa fa-smile-o" aria-hidden="true"></i></div>';
               }
           });
-  }
+
   </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
