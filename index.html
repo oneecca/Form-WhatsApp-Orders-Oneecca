@@ -46,7 +46,7 @@
                   </div>
                       <div class="gs1"></div>
 
-<div  onchange="set()">
+<div  onclick="set()">
                     <form method="POST">
                         <div class="row row-space">
                             <div class="col-2">
@@ -407,6 +407,8 @@ Oneecca
 
 
           /* ================== button submit =============================*/
+function set()
+  {
 /* Pengaturan Whatsapp */
 var walink = 'https://web.whatsapp.com/send',
     phone2       = '6285834326162',
@@ -447,8 +449,7 @@ var iniUntukFungsiTambahdanHide, vrutk, vrmodel, tanyain;
 
 $("#proporsihide").hide();
 
-function set()
-{
+
   vnam    = $("#name").val() + '* - *';
   valmt   = $("#add").val() + benter;
   vutk    = 'mau' + $("input:radio[name=hak]:checked").val() + benter;
@@ -490,7 +491,11 @@ function set()
     vmodel = noting + enter + vproporsi + mbing;
   }
 
-}
+
+
+
+
+$(document).on('click','.send', function(){
 
 var thisforBlankFormCheking,
     input_name          = $("#name").val(),
@@ -550,6 +555,7 @@ var thisforBlankFormCheking,
                    <i class="fa fa-smile-o" aria-hidden="true"></i></div>';
               }
           });
+  }
   </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
