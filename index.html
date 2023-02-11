@@ -409,8 +409,8 @@ Oneecca
           /* ================== button submit =============================*/
 
 $('input:radio[name="hak"]').click(function () {
-  var tes = $(this).alt();
-  if (tes == "2") {
+  var tes = $(this).val();
+  if (tes == "Bikin Baju") {
     $("#kainhide").show();
   } else {
     $("#kainhide").hide();
@@ -419,8 +419,8 @@ $('input:radio[name="hak"]').click(function () {
 
 $("#proporsihide").hide();
 $('input:radio[name="mdl"]').click(function () {
-  var tes = $(this).alt();
-  if (tes == "1") {
+  var tes = $(this).val();
+  if (tes == "a") {
     $("#proporsihide").hide();
   } else {
     $("#proporsihide").show();
